@@ -2,7 +2,7 @@
   "name": "crud_api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/app.ts",
   "scripts": {
     "test": "jest ./src/tests/test.ts",
     "start:dev": "nodemon",

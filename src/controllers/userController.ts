@@ -7,7 +7,13 @@ import {
 } from '../services/userService';
 import { createUser } from '../models/userModel';
 
-const parseRequestBody = (req: IncomingMessage): Promise<any> => {
+interface RequestBody {
+  username?: string;
+  age?: number;
+  hobbies?: string[];
+}
+
+const parseRequestBody = (req: IncomingMessage): Promise<RequestBody> => {
   return new Promise((resolve, reject) => {
     let body = '';
     req.on('data', (chunk) => {
@@ -62,7 +68,7 @@ export const createUserHandler = async (
     const newUser = createUser(username, age, hobbies);
     res.writeHead(201, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify(newUser));
-  } catch (error) {
+  } catch {
     res.writeHead(400, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ message: 'Invalid JSON format' }));
   }
@@ -86,7 +92,7 @@ export const updateUserHandler = async (
 
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify(updatedUser));
-  } catch (error) {
+  } catch {
     res.writeHead(400, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ message: 'Invalid JSON format' }));
   }
