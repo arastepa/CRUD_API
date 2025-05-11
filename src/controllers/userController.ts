@@ -6,6 +6,7 @@ import {
   removeUser,
 } from '../services/userService';
 import { createUser } from '../models/userModel';
+import { validate as isValidUUID } from 'uuid';
 
 interface RequestBody {
   username?: string;
@@ -40,6 +41,11 @@ export const getUser = (
   res: ServerResponse,
   userId: string
 ): void => {
+  if (!isValidUUID(userId)) {
+    res.writeHead(400, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ message: 'Invalid userId format' }));
+    return;
+  }
   const user = fetchUserById(userId);
 
   if (!user) {
@@ -80,6 +86,12 @@ export const updateUserHandler = async (
   userId: string
 ): Promise<void> => {
   try {
+    if (!isValidUUID(userId)) {
+      res.writeHead(400, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ message: 'Invalid userId format' }));
+      return;
+    }
+
     const updatedData = await parseRequestBody(req);
 
     const updatedUser = modifyUser(userId, updatedData);
@@ -103,6 +115,11 @@ export const deleteUserHandler = (
   res: ServerResponse,
   userId: string
 ): void => {
+  if (!isValidUUID(userId)) {
+    res.writeHead(400, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ message: 'Invalid userId format' }));
+    return;
+  }
   if (!removeUser(userId)) {
     res.writeHead(404, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ message: 'User not found' }));
