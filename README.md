@@ -35,20 +35,6 @@ To build and run the production bundle:
 ```sh
 npm run start:prod
 ```
-
-## Linting & Formatting
-Run ESLint to check for code issues:
-
-```sh
-npm run lint
-```
-
-Automatically fix linting issues:
-
-```sh
-npm run lint:fix
-```
-
 ## Testing
 Run tests using Jest:
 
