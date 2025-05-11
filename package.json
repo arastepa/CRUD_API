@@ -1,0 +1,44 @@
+{
+  "name": "crud_api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest ./src/tests/test.ts",
+    "start:dev": "nodemon",
+    "start:prod": "webpack && node dist/bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arastepa/CRUD_API.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arastepa/CRUD_API/issues"
+  },
+  "homepage": "https://github.com/arastepa/CRUD_API#readme",
+  "dependencies": {
+    "nodemon": "^3.1.10",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.17",
+    "@types/uuid": "^10.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.32.0",
+    "@typescript-eslint/parser": "^8.32.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.5.0",
+    "eslint": "^9.26.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.4.0",
+    "prettier": "^3.5.3",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.8.3",
+    "webpack": "^5.99.8",
+    "webpack-cli": "^6.0.1",
+    "webpack-node-externals": "^3.0.0"
+  }
+}
