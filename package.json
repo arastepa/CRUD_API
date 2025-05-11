@@ -6,7 +6,9 @@
   "scripts": {
     "test": "jest ./src/tests/test.ts",
     "start:dev": "nodemon",
-    "start:prod": "webpack && node dist/bundle.js"
+    "start:prod": "webpack && node dist/bundle.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
   },
   "repository": {
     "type": "git",
@@ -20,6 +22,7 @@
   },
   "homepage": "https://github.com/arastepa/CRUD_API#readme",
   "dependencies": {
+    "@eslint/eslintrc": "^3.3.1",
     "nodemon": "^3.1.10",
     "uuid": "^11.1.0"
   },
