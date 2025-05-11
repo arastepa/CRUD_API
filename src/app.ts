@@ -6,6 +6,9 @@ import {
   updateUserHandler,
   deleteUserHandler,
 } from './controllers/userController';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const PORT = process.env.PORT || 4000;
 
